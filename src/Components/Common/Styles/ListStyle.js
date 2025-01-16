@@ -42,7 +42,7 @@ ${list}>a:hover::before{
 background: ${boxList.hBarColor} !important;
 }
 ${list}>a{
-color:${boxList.nTxtColor} !important;
+color:${boxList.nTxtColor};
 padding-left: 30px;
 transition: all .3s ease-in-out;
 text-decoration:none;
@@ -51,7 +51,7 @@ font-size:${slideList.fontSize.desktop}
 ${list}>a:hover {
 color: ${boxList.hTxtColor} !important;
 }
-a.item-active{
+${list} a.item-active{
 color: ${boxList.hTxtColor} !important;
 }
 ${listBlWrapper}.sticky {

@@ -34,7 +34,7 @@ ${timelineItem}>a {
   text-decoration: none;
   font-size:${slideList.fontSize.desktop}
 }
-a.item-active{
+${timelineItem} a.item-active{
   color:${boxList.hTxtColor} !important;
 }
 ${timelineItem}>a.item-active::before{

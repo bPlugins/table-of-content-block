@@ -1508,7 +1508,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const ListFront = ({
-  attributes
+  attributes,
+  id
 }) => {
   const {
     title,
@@ -1538,7 +1539,8 @@ const ListFront = ({
     }, 1000);
   }, []);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Common_Styles_ListStyle__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    attributes: attributes
+    attributes: attributes,
+    id: id
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     onClick: () => setRendered(!rendered),
     className: `list-container poppinsFont ${sticky.toggle ? "sticky" : ""} ${sticky.horizonAlign} ${sticky.verticalAlign}`
@@ -1587,7 +1589,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const SliderFront = ({
-  attributes
+  attributes,
+  id
 }) => {
   const [contentsAttr, setContentsAttr] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)();
   const [rendered, setRendered] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
@@ -1617,7 +1620,8 @@ const SliderFront = ({
     }, 1000);
   }, []);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Common_Styles_SlideStyle__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    attributes: attributes
+    attributes: attributes,
+    id: id
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     onClick: () => setRendered(!rendered),
     className: `slide-container poppinsFont ${sticky.toggle ? "sticky" : ""} ${sticky.horizonAlign} ${sticky.verticalAlign} `
@@ -1666,7 +1670,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const TableFront = ({
-  attributes
+  attributes,
+  id
 }) => {
   const accordion = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
   const titleRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
@@ -1707,7 +1712,8 @@ const TableFront = ({
   }, []);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Common_Styles_Style__WEBPACK_IMPORTED_MODULE_3__["default"], {
     toggle: toggle,
-    attributes: attributes
+    attributes: attributes,
+    id: id
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     onClick: () => setRendered(!rendered),
     ref: accordion,
@@ -1782,7 +1788,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const TableOfContent = ({
-  attributes
+  attributes,
+  id
 }) => {
   const {
     theme
@@ -1790,19 +1797,23 @@ const TableOfContent = ({
   switch (theme) {
     case "slide":
       return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_SliderFront__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        attributes: attributes
+        attributes: attributes,
+        id: id
       });
     case "timeline":
       return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_TimelineFront__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        attributes: attributes
+        attributes: attributes,
+        id: id
       });
     case "list":
       return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ListFront__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        attributes: attributes
+        attributes: attributes,
+        id: id
       });
     default:
       return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_TableFront__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        attributes: attributes
+        attributes: attributes,
+        id: id
       });
   }
 };
@@ -1831,7 +1842,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const TimelineFront = ({
-  attributes
+  attributes,
+  id
 }) => {
   const {
     title,
@@ -1861,7 +1873,8 @@ const TimelineFront = ({
     }, 1000);
   }, []);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Common_Styles_TimelineStyle__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    attributes: attributes
+    attributes: attributes,
+    id: id
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     onClick: () => setRendered(!rendered),
     className: `timeline-container poppinsFont ${sticky.toggle ? "sticky" : ""} ${sticky.horizonAlign} ${sticky.verticalAlign}  `

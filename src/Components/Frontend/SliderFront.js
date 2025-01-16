@@ -3,7 +3,7 @@ import DynamicTag from "../Backend/Panel/DynamicTag/DynamicTag";
 import NoHeading from "../Common/NoHeading/NoHeading";
 import SlideStyle from "../Common/Styles/SlideStyle";
 
-const SliderFront = ({ attributes }) => {
+const SliderFront = ({ attributes ,id}) => {
   const [contentsAttr, setContentsAttr] = useState();
   const [rendered, setRendered] = useState(false);
   const { title, tagName, sticky, headings, slideTitle } = attributes;
@@ -27,7 +27,7 @@ const SliderFront = ({ attributes }) => {
   }, []);
   return (
     <>
-      <SlideStyle attributes={attributes} />
+      <SlideStyle attributes={attributes} id={id} />
       <div onClick={() => setRendered(!rendered)} className={`slide-container poppinsFont ${sticky.toggle ? "sticky" : ""} ${sticky.horizonAlign} ${sticky.verticalAlign} `}>
         <div className="slide-title">
           <DynamicTag className="slide-title-heading" style={{ color: slideTitle.titleColor }} tagName={title.tag} value={title.text} />

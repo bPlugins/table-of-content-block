@@ -4,7 +4,7 @@ import DynamicTag from "../Backend/Panel/DynamicTag/DynamicTag";
 import NoHeading from "../Common/NoHeading/NoHeading";
 import ListStyle from "../Common/Styles/ListStyle";
 
-const ListFront = ({ attributes }) => {
+const ListFront = ({ attributes,id }) => {
   const { title, slideTitle, tagName, sticky, headings } = attributes;
   const [contentsAttr, setContentsAttr] = useState();
   const [rendered, setRendered] = useState(false);
@@ -28,7 +28,7 @@ const ListFront = ({ attributes }) => {
   }, []);
   return (
     <>
-      <ListStyle attributes={attributes} />
+      <ListStyle attributes={attributes} id={id} />
       <div onClick={() => setRendered(!rendered)} className={`list-container poppinsFont ${sticky.toggle ? "sticky" : ""} ${sticky.horizonAlign} ${sticky.verticalAlign}`}>
         <div className="list-title">
           <DynamicTag className="list-title-heading" style={{ color: slideTitle.titleColor }} tagName={title.tag} value={title.text} />

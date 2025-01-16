@@ -3,7 +3,7 @@ import DynamicTag from "../Backend/Panel/DynamicTag/DynamicTag";
 import NoHeading from "../Common/NoHeading/NoHeading";
 import TimelineStyle from "../Common/Styles/TimelineStyle";
 
-const TimelineFront = ({ attributes }) => {
+const TimelineFront = ({ attributes,id }) => {
   const { title, slideTitle, tagName, sticky, headings } = attributes;
   const [contentsAttr, setContentsAttr] = useState();
   const [rendered, setRendered] = useState(false);
@@ -27,7 +27,7 @@ const TimelineFront = ({ attributes }) => {
   }, []);
   return (
     <>
-      <TimelineStyle attributes={attributes} />
+      <TimelineStyle attributes={attributes} id={id} />
       <div onClick={() => setRendered(!rendered)} className={`timeline-container poppinsFont ${sticky.toggle ? "sticky" : ""} ${sticky.horizonAlign} ${sticky.verticalAlign}  `}>
         <div className="timeline-title-container">
           <DynamicTag className="timeline-title" style={{ color: slideTitle.titleColor }} tagName={title.tag} value={title.text} />

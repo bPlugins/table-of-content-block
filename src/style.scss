@@ -1,0 +1,137 @@
+$primaryColor: #4527a4;
+html {
+  scroll-behavior: smooth !important;
+}
+.wp-block-b-blocks-table-of-content {
+  box-sizing: border-box;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .bBlocksBlockName {
+    display: inline-block;
+  }
+
+  .icon {
+    font-style: inherit;
+  }
+
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .accordion {
+    cursor: pointer;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.3s;
+    .accordion-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 18px;
+    }
+    .panel {
+      transition: all 0.3s ease-out;
+      height: 100%;
+      overflow: hidden;
+      p {
+        padding: 0 18px;
+      }
+    }
+  }
+  .slide-container {
+    &.sticky{
+        position:fixed;
+    }
+    .slide-titleSubWrapper {
+      transition: all 0.3s ease-in;
+      display: flex;
+      .slide-title {
+        position: relative;
+        margin-left: 8px;
+        &::after {
+          content: "";
+          height: 3px;
+          width: 38px;
+          position: absolute;
+          left: 0px;
+          top: 50%;
+          transform: translateY(-50%);
+          opacity: 1;
+          transition: opacity 0.3s ease-in;
+        }
+        .slide-title-heading {
+          margin: 0px;
+          margin-left: 30px;
+          transition: all 0.3s ease-in;
+          opacity: 0;
+        }
+      }
+    }
+    .slide-list-items {
+      list-style: none;
+      margin-left: 8px;
+      .slide-list {
+        position: relative;
+        margin: 0;
+        margin-left: 0px;
+        a {
+          margin-left: 30px;
+          transition: all 0.3s ease-in;
+          opacity: 0;
+          text-decoration: none;
+        }
+        &::after{
+            content: "";
+            height: 3px;
+            width: 30px;
+            position: absolute;
+            left: 0px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: opacity 0.3s ease-in;
+          
+        }
+      }
+    }
+    &:hover {
+      .slide-titleSubWrapper {
+        .slide-title {
+          &::after {
+            opacity: 0;
+          }
+          .slide-title-heading {
+            margin-left: 8px !important;
+            opacity: 1;
+          }
+        }
+      }
+
+      .slide-list-items {
+        .slide-list {
+            opacity: 1;
+
+          a {
+            margin-left: 8px;
+            opacity: 1;
+          }
+          &::after{
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.wp-block-post-content-is-layout-constrained {
+  position: relative;
+}
+
+.panel-table-container-order-list {
+  margin: 0;
+}

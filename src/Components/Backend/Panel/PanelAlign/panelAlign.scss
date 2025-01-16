@@ -1,0 +1,48 @@
+.bPl_single-icon-admin-panel {
+  position: relative;
+  width: 100%;
+  padding: 8px 8px !important;
+  transition: background 0.2 ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-right: 1px solid #ccc;
+  &:last-child {
+    border-right: 0px;
+  }
+  &.isActive-include {
+    background: #d7d7d7;
+  }
+  &:hover > .icon-picker-tooltip-container {
+    display: block;
+  }
+  .icon-picker-tooltip-container {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+  }
+
+  .icon-picker-tooltip {
+    background: black;
+    border-radius: 3px;
+  }
+
+  .icon-picker-tooltip > span {
+    position: relative;
+    color: white;
+    text-transform: capitalize;
+  }
+
+  .icon-picker-tooltip > span svg {
+    position: absolute;
+    bottom: -2.5px;
+    font-size: 18px;
+    left: 50%;
+    color: #000;
+    fill: #000;
+    transform: translate(-50%, 50%);
+  }
+}

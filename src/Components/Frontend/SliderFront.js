@@ -1,34 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DynamicTag from "../Backend/Panel/DynamicTag/DynamicTag";
 import NoHeading from "../Common/NoHeading/NoHeading";
 import SlideStyle from "../Common/Styles/SlideStyle";
+import useHeading from "../hooks/useHeading";
 
-const SliderFront = ({ attributes ,id}) => {
+const SliderFront = ({ attributes, id }) => {
   const [contentsAttr, setContentsAttr] = useState();
   const [rendered, setRendered] = useState(false);
   const { title, tagName, sticky, headings, slideTitle } = attributes;
-  useEffect(() => {
-    const root = document.body;
-    const selectorString = tagName.join(", ");
-    const headingsEl = root.querySelectorAll(`${selectorString}`);
-    for (let index = 0; index < headingsEl.length; index++) {
-      const currentHeading = headings.find((heading) => heading.tag === headingsEl[index].tagName && heading.contents === headingsEl[index].textContent);
-      if (currentHeading) {
-        const span = document.createElement("span");
-        span.setAttribute("id", currentHeading.id);
-        headingsEl[index].insertAdjacentElement("beforebegin", span);
-      }
-    }
-    const url = window.location.hash;
-    setTimeout(() => {
-      const activeSection = document.querySelector(`[href='${url}']`);
-      activeSection?.click();
-    }, 1000);
-  }, []);
+  useHeading(tagName, headings)
   return (
     <>
       <SlideStyle attributes={attributes} id={id} />
-      <div onClick={() => setRendered(!rendered)} className={`slide-container poppinsFont ${sticky.toggle ? "sticky" : ""} ${sticky.horizonAlign} ${sticky.verticalAlign} `}>
+      <div onClick={() => setRendered(!rendered)} className={`slide-container ${sticky.toggle ? "sticky" : ""} ${sticky.horizonAlign} ${sticky.verticalAlign} `}>
         <div className="slide-title">
           <DynamicTag className="slide-title-heading" style={{ color: slideTitle.titleColor }} tagName={title.tag} value={title.text} />
         </div>

@@ -152,6 +152,7 @@
   justify-content: center;
   border-bottom: 0px;
   border: 1px solid #4527a4;
+  white-space: nowrap;
 }
 .bPlTabPanel.small .components-tab-panel__tabs button:focus, .bPlTabPanel.mini .components-tab-panel__tabs button:focus {
   color: #4527a4;
@@ -516,6 +517,12 @@
 .bPlDropdownPopover .components-popover__content .bPlBtnGroup .is-primary.has-icon {
   padding: 6px 9px;
 }
+.bPlPanelBody .bPlBtnGroup .components-button.has-icon.is-small,
+.bPlPanelBody .bPlBtnGroup .is-primary.has-icon.is-small,
+.bPlDropdownPopover .components-popover__content .bPlBtnGroup .components-button.has-icon.is-small,
+.bPlDropdownPopover .components-popover__content .bPlBtnGroup .is-primary.has-icon.is-small {
+  padding: 0 4px;
+}
 .bPlPanelBody .bPlBtnGroup .is-primary,
 .bPlDropdownPopover .components-popover__content .bPlBtnGroup .is-primary {
   color: #fff;
@@ -550,6 +557,10 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  color: #fff;
+}
+.bPlPanelBody .addItem button:hover,
+.bPlDropdownPopover .components-popover__content .addItem button:hover {
   color: #fff;
 }
 .bPlPanelBody .addItem button:focus,
@@ -646,6 +657,19 @@
   align-items: center;
   justify-content: center;
 }
+
+.bPlCustomPopoverWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.bPlCustomPopoverChildren {
+  width: 240px;
+  padding: 10px;
+}
 /*!*************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!../bpl-tools/Components/BoxControl/BoxControl.scss ***!
   \*************************************************************************************************************************************************************************************************************************************************************************/
@@ -682,12 +706,27 @@
 }
 .bPlBoxControl .boxLinkButton {
   background: transparent;
-  border: none;
-  padding: 0;
-  margin-top: -13px;
+  cursor: pointer;
+  height: 32px;
+  display: grid;
+  align-self: self-start;
+  align-content: center;
+  padding: 0 4px;
+  border: 1px solid #949494;
+  border-left: unset;
+  border-radius: 0 2px 2px 0;
   cursor: pointer;
 }
+.bPlBoxControl .boxLinkButton.activeLink {
+  background-color: #4527a4;
+}
+.bPlBoxControl .boxLinkButton.activeLink .dashicons {
+  color: #fff;
+}
 .bPlBoxControl .boxLinkButton .dashicons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 16px;
 }
 .bPlBoxControl .boxLinkButton .dashicons.dashicons-image-rotate {
@@ -1189,123 +1228,6 @@
 .bPlSortablePanelItem .itemsPanelBody.hidden {
   height: 0;
 }
-/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!../bpl-tools/Components/MediaControl/MediaControl.scss ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************/
-.bPlInlineMediaUpload .components-base-control {
-  width: calc(100% - 36px) !important;
-}
-.bPlInlineMediaUpload button {
-  height: 31px;
-  padding: 3px !important;
-  color: #fff !important;
-  background-color: #4527a4 !important;
-  border: none !important;
-  outline: 0;
-}
-.bPlInlineMediaUpload button:focus {
-  outline: 0;
-  box-shadow: 0 0 0 0px #4527a4 !important;
-}
-
-.bPlMediaPlaceholder .components-placeholder__fieldset {
-  flex-direction: row !important;
-}
-.bPlMediaPlaceholder button {
-  color: #fff !important;
-  background-color: #4527a4 !important;
-}
-.bPlMediaPlaceholder .components-button {
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: 0 !important;
-}
-.bPlMediaPlaceholder .bPlUrlInput {
-  flex: 1;
-}
-.bPlMediaPlaceholder .bPlUrlInput h3 {
-  font-size: 15px !important;
-  margin: 0 10px;
-  text-transform: uppercase;
-}
-.bPlMediaPlaceholder .bPlUrlInput input {
-  width: -webkit-fill-available;
-  padding: 8.5px 15px;
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-  line-height: 0;
-}
-.bPlMediaPlaceholder .bPlUrlInput button {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  margin-left: 10px !important;
-}
-
-.bPlPanelBody .bPlMediaPlaceholder .bPlUrlInput .components-base-control {
-  flex: 1;
-}
-.bPlPanelBody .bPlMediaPlaceholder .bPlUrlInput input {
-  width: 100%;
-}
-
-.bPlMediaArea .mediaAreaContainer {
-  height: 110px;
-  background-image: linear-gradient(45deg, #d5d8dc 25%, transparent 0, transparent 75%, #d5d8dc 0, #d5d8dc), linear-gradient(45deg, #d5d8dc 25%, transparent 0, transparent 75%, #d5d8dc 0, #d5d8dc);
-  background-size: 16px 16px;
-  background-position: 0 0, 8px 8px;
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-.bPlMediaArea .mediaAreaContainer .mediaPlusBtnWrapper .mediaPlusBtnCircle {
-  width: 30px;
-  height: 30px;
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #ababab;
-  border-radius: 30px;
-}
-.bPlMediaArea .mediaAreaContainer .mediaPlusBtnWrapper .mediaPlusBtnCircle svg {
-  margin: 0px !important;
-}
-.bPlMediaArea .mediaAreaContainer .mediaButton {
-  position: absolute;
-  right: 0;
-  bottom: -40px;
-  left: 0;
-  text-align: center;
-  color: white;
-  background: #161616;
-  padding: 5px 0;
-  transition: all 0.3s ease-in-out;
-}
-.bPlMediaArea .mediaAreaContainer .mediaDelete {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: none;
-  color: white;
-  background: #161616;
-  padding: 3px 6px;
-}
-.bPlMediaArea .mediaAreaContainer .mediaImage {
-  -o-object-fit: cover;
-     object-fit: cover;
-  border: none;
-}
-.bPlMediaArea .mediaAreaContainer:hover .mediaButton {
-  bottom: 0;
-}
-.bPlMediaArea .mediaAreaContainer:hover .mediaDelete {
-  display: block;
-}
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!../bpl-tools/Components/MultiSelectControl/MultiSelectControl.scss ***!
   \*****************************************************************************************************************************************************************************************************************************************************************************************/
@@ -1803,6 +1725,123 @@
   width: 14px;
   height: 14px;
   font-size: 14px;
+}
+/*!*****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!../bpl-tools/Components/MediaControl/MediaControl.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************/
+.bPlInlineMediaUpload .components-base-control {
+  width: calc(100% - 36px) !important;
+}
+.bPlInlineMediaUpload button {
+  height: 31px;
+  padding: 3px !important;
+  color: #fff !important;
+  background-color: #4527a4 !important;
+  border: none !important;
+  outline: 0;
+}
+.bPlInlineMediaUpload button:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0px #4527a4 !important;
+}
+
+.bPlMediaPlaceholder .components-placeholder__fieldset {
+  flex-direction: row !important;
+}
+.bPlMediaPlaceholder button {
+  color: #fff !important;
+  background-color: #4527a4 !important;
+}
+.bPlMediaPlaceholder .components-button {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 !important;
+}
+.bPlMediaPlaceholder .bPlUrlInput {
+  flex: 1;
+}
+.bPlMediaPlaceholder .bPlUrlInput h3 {
+  font-size: 15px !important;
+  margin: 0 10px;
+  text-transform: uppercase;
+}
+.bPlMediaPlaceholder .bPlUrlInput input {
+  width: -webkit-fill-available;
+  padding: 8.5px 15px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  line-height: 0;
+}
+.bPlMediaPlaceholder .bPlUrlInput button {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-left: 10px !important;
+}
+
+.bPlPanelBody .bPlMediaPlaceholder .bPlUrlInput .components-base-control {
+  flex: 1;
+}
+.bPlPanelBody .bPlMediaPlaceholder .bPlUrlInput input {
+  width: 100%;
+}
+
+.bPlMediaArea .mediaAreaContainer {
+  height: 110px;
+  background-image: linear-gradient(45deg, #d5d8dc 25%, transparent 0, transparent 75%, #d5d8dc 0, #d5d8dc), linear-gradient(45deg, #d5d8dc 25%, transparent 0, transparent 75%, #d5d8dc 0, #d5d8dc);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.bPlMediaArea .mediaAreaContainer .mediaPlusBtnWrapper .mediaPlusBtnCircle {
+  width: 30px;
+  height: 30px;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ababab;
+  border-radius: 30px;
+}
+.bPlMediaArea .mediaAreaContainer .mediaPlusBtnWrapper .mediaPlusBtnCircle svg {
+  margin: 0px !important;
+}
+.bPlMediaArea .mediaAreaContainer .mediaButton {
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  left: 0;
+  text-align: center;
+  color: white;
+  background: #161616;
+  padding: 5px 0;
+  transition: all 0.3s ease-in-out;
+}
+.bPlMediaArea .mediaAreaContainer .mediaDelete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: none;
+  color: white;
+  background: #161616;
+  padding: 3px 6px;
+}
+.bPlMediaArea .mediaAreaContainer .mediaImage {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: none;
+}
+.bPlMediaArea .mediaAreaContainer:hover .mediaButton {
+  bottom: 0;
+}
+.bPlMediaArea .mediaAreaContainer:hover .mediaDelete {
+  display: block;
 }
 /*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/Components/Backend/Panel/SelectTokenField/style.scss ***!

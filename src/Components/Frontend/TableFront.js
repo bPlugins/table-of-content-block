@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import DynamicTag from "../Backend/Panel/DynamicTag/DynamicTag";
 import NoHeading from "../Common/NoHeading/NoHeading";
 import Style from "../Common/Styles/Style";
+import useHeading from "../hooks/useHeading";
 
-const TableFront = ({ attributes,id }) => {
+const TableFront = ({ attributes, id }) => {
   const accordion = useRef();
   const titleRef = useRef();
   const accordionPanel = useRef();
@@ -13,31 +14,14 @@ const TableFront = ({ attributes,id }) => {
   const [accordionHeight, setAccordionHeight] = useState();
   const { header, title, tagName, minimize, markup, sticky, headings } = attributes;
 
-  useEffect(() => {
-    const root = document.body;
-    const selectorString = tagName.join(", ");
-    const headingsEl = root.querySelectorAll(`${selectorString}`);
-    for (let index = 0; index < headingsEl.length; index++) {
-      const currentHeading = headings.find((heading) => heading.tag === headingsEl[index].tagName && heading.contents === headingsEl[index].textContent);
-      if (currentHeading) {
-        const span = document.createElement("span");
-        span.setAttribute("id", currentHeading.id);
-        headingsEl[index].insertAdjacentElement("beforebegin", span);
-      }
-    }
-    const url = window.location.hash;
-    setTimeout(() => {
-      const activeSection = document.querySelector(`[href='${url}']`);
-      activeSection?.click();
-    }, 1000);
-  }, []);
+  useHeading(tagName, headings)
   useEffect(() => {
     setAccordionHeight(accordionPanel?.current?.scrollHeight + "px");
   }, []);
   return (
     <>
       <Style toggle={toggle} attributes={attributes} id={id} />
-      <div onClick={() => setRendered(!rendered)} ref={accordion} className={`accordion poppinsFont ${sticky.toggle ? "sticky" : ""} ${sticky.horizonAlign} ${sticky.verticalAlign}`}>
+      <div onClick={() => setRendered(!rendered)} ref={accordion} className={`accordion ${sticky.toggle ? "sticky" : ""} ${sticky.horizonAlign} ${sticky.verticalAlign}`}>
         <div ref={titleRef} onClick={() => setToggle(!toggle)} className="accordion-title">
           <DynamicTag className="content-table-title" style={{ margin: "0", color: header.txtColor }} tagName={title?.tag} value={title?.text} />
           {minimize.toggle && <>{!toggle ? <i style={{ color: header.iconColor }} className={minimize.collapseIcon}></i> : <i style={{ color: header.iconColor }} className={minimize.expandIcon}></i>}</>}

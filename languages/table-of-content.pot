@@ -1,0 +1,60 @@
+# Copyright (C) 2025 bPlugins
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: Table of Content 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/table-of-content\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-03-03T11:17:19+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.10.0\n"
+"X-Domain: b-blocks\n"
+
+#. Plugin Name of the plugin
+#: D:\wp\websites\muradwahid\app\public\wp-content\plugins\table-of-content\table-of-content.php
+msgid "Table of Content"
+msgstr ""
+
+#. Description of the plugin
+#: D:\wp\websites\muradwahid\app\public\wp-content\plugins\table-of-content\table-of-content.php
+msgid "The Table of Contents block automatically generates a table of contents for your WordPress post or page."
+msgstr ""
+
+#. Author of the plugin
+#: D:\wp\websites\muradwahid\app\public\wp-content\plugins\table-of-content\table-of-content.php
+msgid "bPlugins"
+msgstr ""
+
+#. Author URI of the plugin
+#: D:\wp\websites\muradwahid\app\public\wp-content\plugins\table-of-content\table-of-content.php
+msgid "https://bplugins.com"
+msgstr ""
+
+#: build/block.json
+msgctxt "block title"
+msgid "Table of Content"
+msgstr ""
+
+#: build/block.json
+msgctxt "block description"
+msgid "The Table of Contents block automatically generates a table of contents for your WordPress post or page."
+msgstr ""
+
+#: build/block.json
+msgctxt "block keyword"
+msgid "table"
+msgstr ""
+
+#: build/block.json
+msgctxt "block keyword"
+msgid "content"
+msgstr ""
+
+#: build/block.json
+msgctxt "block keyword"
+msgid "table of contents"
+msgstr ""

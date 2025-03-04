@@ -1,35 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import DynamicTag from "../Backend/Panel/DynamicTag/DynamicTag";
 import NoHeading from "../Common/NoHeading/NoHeading";
 import ListStyle from "../Common/Styles/ListStyle";
+import useHeading from "../hooks/useHeading";
 
-const ListFront = ({ attributes,id }) => {
+const ListFront = ({ attributes, id }) => {
   const { title, slideTitle, tagName, sticky, headings } = attributes;
   const [contentsAttr, setContentsAttr] = useState();
-  const [rendered, setRendered] = useState(false);
-  useEffect(() => {
-    const root = document.body;
-    const selectorString = tagName.join(", ");
-    const headingsEl = root.querySelectorAll(`${selectorString}`);
-    for (let index = 0; index < headingsEl.length; index++) {
-      const currentHeading = headings.find((heading) => heading.tag === headingsEl[index].tagName && heading.contents === headingsEl[index].textContent);
-      if (currentHeading) {
-        const span = document.createElement("span");
-        span.setAttribute("id", currentHeading.id);
-        headingsEl[index].insertAdjacentElement("beforebegin", span);
-      }
-    }
-    const url = window.location.hash;
-    setTimeout(() => {
-      const activeSection = document.querySelector(`[href='${url}']`);
-      activeSection?.click();
-    }, 1000);
-  }, []);
+  useHeading(tagName, headings)
   return (
     <>
       <ListStyle attributes={attributes} id={id} />
-      <div onClick={() => setRendered(!rendered)} className={`list-container poppinsFont ${sticky.toggle ? "sticky" : ""} ${sticky.horizonAlign} ${sticky.verticalAlign}`}>
+      <div className={`list-container ${sticky.toggle ? "sticky" : ""} ${sticky.horizonAlign} ${sticky.verticalAlign}`}>
         <div className="list-title">
           <DynamicTag className="list-title-heading" style={{ color: slideTitle.titleColor }} tagName={title.tag} value={title.text} />
         </div>

@@ -1,5 +1,4 @@
-import React from "react";
-
+import { isValidCSS } from "../../../../../bpl-tools/utils/getCSS"
 const ListStyle = ({ attributes, id }) => {
   const { sticky, slideTitle, slideList, boxList } = attributes;
   const blockWrapper = `#${id}`;
@@ -55,6 +54,7 @@ ${list} a.item-active{
 color: ${boxList.hTxtColor} !important;
 }
 ${listBlWrapper}.sticky {
+${isValidCSS("width",sticky.width.desktop)}
 z-index: ${sticky.zIndex.desktop} !important;
 position:fixed;
 }
@@ -125,6 +125,7 @@ ${list}>a{
 font-size:${slideList.fontSize.tablet}
 }
 ${listBlWrapper}.sticky {
+${isValidCSS("width", sticky.width.tablet)}
 z-index: ${sticky.zIndex.tablet} !important;
 position:${sticky?.device.includes("Tablet") ? "fixed" : "initial"};
 }
@@ -158,6 +159,7 @@ ${list}>a{
 font-size:${slideList.fontSize.mobile}
 }
 ${listBlWrapper}.sticky {
+${isValidCSS("width", sticky.width.mobile)}
 z-index: ${sticky.zIndex.mobile} !important;
 position:${sticky?.device.includes("Mobile") ? "fixed" : "initial"};
 }

@@ -1,3 +1,4 @@
+import { isValidCSS } from "../../../../../bpl-tools/utils/getCSS";
 
 const Style = ({ attributes, id }) => {
   const { header, boxList, markup, sticky} = attributes;
@@ -25,6 +26,7 @@ const Style = ({ attributes, id }) => {
           margin-left:5px;
         }
         ${accordion}.sticky {
+        ${isValidCSS("width", sticky.width.desktop)}
           z-index: ${sticky.zIndex.desktop} !important;
 
           position:fixed;
@@ -164,6 +166,7 @@ const Style = ({ attributes, id }) => {
       }
       @media only screen and (min-width:641px) and (max-width: 1024px){
         ${accordion}.sticky {
+        ${isValidCSS("width", sticky.width.tablet)}
           z-index: ${sticky.zIndex.tablet} !important;
           position:${sticky.device.includes("Tablet") ? "fixed" : "initial"};
         }
@@ -227,6 +230,7 @@ const Style = ({ attributes, id }) => {
       }
       @media only screen and (max-width: 640px) {
         ${accordion}.sticky {
+        ${isValidCSS("width", sticky.width.mobile)}
           z-index: ${sticky.zIndex.mobile} !important;
           position:${sticky.device.includes("Mobile") ? "fixed" : "initial"};
         }

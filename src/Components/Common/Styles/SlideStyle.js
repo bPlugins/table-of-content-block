@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { getBackgroundCSS, getBorderCSS, getBoxCSS, getMultiShadowCSS } from "../../../../../bpl-tools/utils/getCSS";
+import { getBackgroundCSS, getBorderCSS, getBoxCSS, getMultiShadowCSS, isValidCSS } from "../../../../../bpl-tools/utils/getCSS";
 
 const SlideStyle = ({ attributes, id }) => {
   const { slideTitle, slideList, sticky, boxList} = attributes;
@@ -44,6 +44,7 @@ ${slideContainer}:hover .slide-list::after{
   background-color:${boxList.hBarColor};
 } 
 ${slideContainer}.sticky {
+${isValidCSS("width", sticky.width.desktop)}
   z-index: ${sticky.zIndex.desktop} !important;
 }
 ${["left", "right"]
@@ -99,6 +100,7 @@ ${val}:${sticky[val].desktop}
 
 @media only screen and (min-width:641px) and (max-width: 1024px) {
         ${slideContainer}.sticky {
+        ${isValidCSS("width", sticky.width.tablet)}
           z-index: ${sticky.zIndex.tablet} !important;
           position:${sticky.device.includes("Tablet") ? "fixed" : "initial"};
         }
@@ -131,6 +133,7 @@ ${val}:${sticky[val].desktop}
 
         @media only screen and (max-width: 640px) {
         ${slideContainer}.sticky {
+        ${isValidCSS("width", sticky.width.mobile)}
           z-index: ${sticky.zIndex.mobile} !important;
           position:${sticky.device.includes("Mobile") ? "fixed" : "initial"};
         }

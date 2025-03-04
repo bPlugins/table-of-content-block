@@ -1,5 +1,5 @@
 import React from "react";
-import {getMultiShadowCSS } from "../../../../../bpl-tools/utils/getCSS";
+import {getMultiShadowCSS, isValidCSS } from "../../../../../bpl-tools/utils/getCSS";
 
 const TimelineStyle = ({ attributes, id }) => {
   const {sticky, slideTitle, slideList, boxList } = attributes;
@@ -66,6 +66,7 @@ ${timelineItem}>a:hover::before {
   background-color:${boxList.hTxtColor};
 }
 ${timelineSl}.sticky {
+${isValidCSS("width", sticky.width.desktop)}
   z-index: ${sticky.zIndex.desktop} !important;
 
   position:fixed;
@@ -133,6 +134,7 @@ ${timelineItem}>a {
   font-size:${slideList.fontSize.tablet}
 }
 ${timelineSl}.sticky {
+${isValidCSS("width", sticky.width.tablet)}
   z-index: ${sticky.zIndex.tablet} !important;
   position:${sticky.device.includes("Tablet") ? "fixed" : "initial"};
 }
@@ -166,6 +168,7 @@ ${timelineItem}>a {
   font-size:${slideList.fontSize.mobile}
 }
 ${timelineSl}.sticky {
+${isValidCSS("width", sticky.width.mobile)}
   z-index: ${sticky.zIndex.mobile} !important;
   position:${sticky.device.includes("Mobile") ? "fixed" : "initial"};
 }
